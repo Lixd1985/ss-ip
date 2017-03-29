@@ -20,13 +20,13 @@ if(args[0].indexOf('@') > -1)
 
 
 appid   =   args[2] || 'all',
-images  =   ["malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","smounives/shadowsocksr-docker"];
+images  =   ["lixd1985/ss"];
 
 
 app.get('/', function(req, res) {
     getit(appid,function(err,data){   
         if(err || !data)
-            res.send('没有查询到数据。请检查node启动参数是否正确。更多内容请访问：https://github.com/malaohu/ssr-with-net-speeder/tree/arukas');
+            res.send('没有查询到数据。请检查node启动参数是否正确');
         else    
             res.render('./index.html',{"data":data || []});
     })
@@ -128,7 +128,7 @@ app.get('/:appid',function(req,res){
 })
 
 app.get('/i', function (req, res) {
-    res.send('http://51.ruyo.net');
+    res.send('Hello');
 })
 
 app.listen(3999, function () {
